@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Platform, Image } from 'react-native'
 import React, { useState } from 'react';
 import { RFPercentage } from 'react-native-responsive-fontsize';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 //components
 import Screen from './../components/Screen';
@@ -11,7 +12,7 @@ import LoadingModal from './../components/common/LoadingModal';
 //config
 import Colors from '../config/Colors';
 
-export default function SignupScreen() {
+export default function LoginScreen() {
 
     // Input fields
     const [indicator, showIndicator] = useState(false);
@@ -19,29 +20,14 @@ export default function SignupScreen() {
     const [inputField, SetInputField] = useState([
         {
             placeholder: "",
-            text: "Username",
-            value: "",
-        },
-        {
-            placeholder: "",
-            text: "Organization",
-            value: "",
-        },
-        {
-            placeholder: "",
-            text: "Email",
+            text: "Email Address",
             value: "",
         },
         {
             placeholder: "",
             text: "Password",
             value: "",
-        },
-        {
-            placeholder: "",
-            text: "Phone Number",
-            value: "",
-        },
+        }
     ]);
 
     const handleChange = (text, i) => {
@@ -51,7 +37,7 @@ export default function SignupScreen() {
 
     };
 
-    const handleSignup = () => {
+    const handleLogin = () => {
         showIndicator(true);
         let tempfeilds = [...inputField];
 
@@ -76,12 +62,13 @@ export default function SignupScreen() {
             {/* Heading */}
             <View style={{ width: '90%', justifyContent: 'flex-start', flexDirection: 'row', alignSelf: 'center' }} >
                 <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#291380" }} >
-                    Sign Up
+                    Login
                 </Text>
             </View>
 
             <ScrollView style={{ flex: 1, width: '100%' }} >
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+
                     {/* Input field */}
                     <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                         {inputField.map((item, i) => (
@@ -107,11 +94,19 @@ export default function SignupScreen() {
                         ))}
                     </View>
 
+                    <View style={{ marginTop: RFPercentage(1), width: '90%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', alignSelf: 'center' }} >
+                        <TouchableOpacity activeOpacity={0.8} >
+                            <Text style={{ color: '#2B217F', fontWeight: Platform.OS == 'android' ? 'bold' : '600', }} >
+                                Forgot Password?
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
                     {/* Submit Button */}
                     <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(7) }}>
                         <MyAppButton
-                            title="Submit"
-                            onPress={() => handleSignup()}
+                            title="Login"
+                            onPress={() => handleLogin()}
                             gradient={true}
                             bold={false}
                             borderColor={Colors.primary}
@@ -120,6 +115,25 @@ export default function SignupScreen() {
                             borderRadius={RFPercentage(2)}
                             width={"94.5%"}
                         />
+                    </View>
+
+                    {/* Social Media Saperation Line */}
+                    <View style={{ marginTop: RFPercentage(4), width: '90%', flexDirection: 'row', alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }} >
+                        <View style={{ width: '30%', height: RFPercentage(0.1), backgroundColor: Colors.black, marginRight: RFPercentage(2) }} />
+                        <Text style={{ color: Colors.black, fontSize: RFPercentage(1.9) }} >
+                            Continue With
+                        </Text>
+                        <View style={{ width: '30%', height: RFPercentage(0.1), backgroundColor: Colors.black, marginLeft: RFPercentage(2) }} />
+                    </View>
+
+                    {/* Logos links */}
+                    <View style={{ marginTop: RFPercentage(3), width: '90%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
+                        <TouchableOpacity activeOpacity={0.8} >
+                            <Image source={require('../../assets/images/gg.png')} style={{ width: RFPercentage(3.7), height: RFPercentage(3.7) }} />
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={0.8} style={{ marginLeft: RFPercentage(2.5) }} >
+                            <Image source={require('../../assets/images/fb.png')} style={{ width: RFPercentage(3.7), height: RFPercentage(3.7) }} />
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>
