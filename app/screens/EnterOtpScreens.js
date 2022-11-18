@@ -102,7 +102,7 @@ export default function EnterOtpScreen() {
                             bold={false}
                             borderColor={Colors.primary}
                             color={Colors.white}
-                            fontSize={RFPercentage(2.2)}
+                            fontSize={RFPercentage(2.1)}
                             borderRadius={RFPercentage(2)}
                             width={"94.5%"}
                         />

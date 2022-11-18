@@ -12,7 +12,7 @@ import LoadingModal from './../components/common/LoadingModal';
 //config
 import Colors from '../config/Colors';
 
-export default function LoginScreen() {
+export default function NewPasswordScreen() {
 
     // Input fields
     const [indicator, showIndicator] = useState(false);
@@ -20,14 +20,14 @@ export default function LoginScreen() {
     const [inputField, SetInputField] = useState([
         {
             placeholder: "",
-            text: "Email Address",
+            text: "Enter New Password",
             value: "",
         },
         {
             placeholder: "",
-            text: "Password",
+            text: "Confirm New Password",
             value: "",
-        }
+        },
     ]);
 
     const handleChange = (text, i) => {
@@ -37,7 +37,7 @@ export default function LoginScreen() {
 
     };
 
-    const handleLogin = () => {
+    const handleNext = () => {
         showIndicator(true);
         let tempfeilds = [...inputField];
 
@@ -60,9 +60,9 @@ export default function LoginScreen() {
             <LoadingModal show={indicator} />
 
             {/* Heading */}
-            <View style={{ width: '90%', justifyContent: 'flex-start', flexDirection: 'row', alignSelf: 'center' }} >
-                <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#291380" }} >
-                    Login
+            <View style={{ marginTop: RFPercentage(6), width: '90%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
+                <Text style={{ fontSize: RFPercentage(3), fontWeight: 'bold', color: "#000" }} >
+                    New Password
                 </Text>
             </View>
 
@@ -72,8 +72,8 @@ export default function LoginScreen() {
                     {/* Input field */}
                     <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
                         {inputField.map((item, i) => (
-                            <View key={i} style={{ marginTop: i == 0 ? RFPercentage(5) : RFPercentage(1.6) }} >
-                                <Text style={{ color: '#424649', fontSize: RFPercentage(1.9), left: RFPercentage(1.1), marginBottom: RFPercentage(0.6), }}>
+                            <View key={i} style={{ marginTop: i == 0 ? RFPercentage(9) : RFPercentage(1.6) }} >
+                                <Text style={{ color: '#424649', fontSize: RFPercentage(2), left: RFPercentage(1.1), marginBottom: RFPercentage(0.6), }}>
                                     {item.text}
                                 </Text>
                                 <InputField
@@ -94,19 +94,11 @@ export default function LoginScreen() {
                         ))}
                     </View>
 
-                    <View style={{ marginTop: RFPercentage(1), width: '90%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', alignSelf: 'center' }} >
-                        <TouchableOpacity activeOpacity={0.8} >
-                            <Text style={{ color: '#2B217F', fontWeight: Platform.OS == 'android' ? 'bold' : '600', }} >
-                                Forgot Password?
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-
                     {/* Submit Button */}
                     <View style={{ width: "100%", alignItems: "center", marginTop: RFPercentage(7) }}>
                         <MyAppButton
-                            title="Login"
-                            onPress={() => handleLogin()}
+                            title="Reset Pasword & Login"
+                            onPress={() => handleNext()}
                             gradient={true}
                             bold={false}
                             borderColor={Colors.primary}
@@ -117,24 +109,6 @@ export default function LoginScreen() {
                         />
                     </View>
 
-                    {/* Social Media Saperation Line */}
-                    <View style={{ marginTop: RFPercentage(4), width: '90%', flexDirection: 'row', alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }} >
-                        <View style={{ width: '30%', height: RFPercentage(0.1), backgroundColor: Colors.black, marginRight: RFPercentage(2) }} />
-                        <Text style={{ color: Colors.black, fontSize: RFPercentage(1.9) }} >
-                            Continue With
-                        </Text>
-                        <View style={{ width: '30%', height: RFPercentage(0.1), backgroundColor: Colors.black, marginLeft: RFPercentage(2) }} />
-                    </View>
-
-                    {/* Logos links */}
-                    <View style={{ marginTop: RFPercentage(3), width: '90%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
-                        <TouchableOpacity activeOpacity={0.8} >
-                            <Image source={require('../../assets/images/gg.png')} style={{ width: RFPercentage(3.7), height: RFPercentage(3.7) }} />
-                        </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={0.8} style={{ marginLeft: RFPercentage(2.5) }} >
-                            <Image source={require('../../assets/images/fb.png')} style={{ width: RFPercentage(3.7), height: RFPercentage(3.7) }} />
-                        </TouchableOpacity>
-                    </View>
                 </View>
             </ScrollView>
         </Screen>
