@@ -55,11 +55,11 @@ export default function SignupScreen(props) {
         showIndicator(true);
         let tempfeilds = [...inputField];
 
-        // if (tempfeilds[0].value === "" || tempfeilds[1].value === "") {
-        //     alert("Please fill all the feilds");
-        //     showIndicator(false);
-        //     return true;
-        // }
+        if (tempfeilds[0].value === "" || tempfeilds[1].value === "") {
+            alert("Please fill all the feilds");
+            showIndicator(false);
+            return true;
+        }
         props.navigation.navigate("LoginScreen")
         try {
             // API INTEGRATION WILL COME HERE
