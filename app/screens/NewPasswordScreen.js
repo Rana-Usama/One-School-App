@@ -61,7 +61,7 @@ export default function NewPasswordScreen() {
 
             {/* Heading */}
             <View style={{ marginTop: RFPercentage(6), width: '90%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
-                <Text style={{ fontSize: RFPercentage(3), fontWeight: 'bold', color: "#000" }} >
+                <Text style={{ fontSize: RFPercentage(3), fontWeight: 'bold', color: "#EC459F" }} >
                     New Password
                 </Text>
             </View>

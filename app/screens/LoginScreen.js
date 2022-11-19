@@ -12,7 +12,7 @@ import LoadingModal from './../components/common/LoadingModal';
 //config
 import Colors from '../config/Colors';
 
-export default function LoginScreen() {
+export default function LoginScreen(props) {
 
     // Input fields
     const [indicator, showIndicator] = useState(false);
@@ -61,7 +61,7 @@ export default function LoginScreen() {
 
             {/* Heading */}
             <View style={{ width: '90%', justifyContent: 'flex-start', flexDirection: 'row', alignSelf: 'center' }} >
-                <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#291380" }} >
+                <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#EC459F" }} >
                     Login
                 </Text>
             </View>
@@ -95,7 +95,7 @@ export default function LoginScreen() {
                     </View>
 
                     <View style={{ marginTop: RFPercentage(1), width: '90%', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', alignSelf: 'center' }} >
-                        <TouchableOpacity activeOpacity={0.8} >
+                        <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("ForgetScreen")} >
                             <Text style={{ color: '#2B217F', fontWeight: Platform.OS == 'android' ? 'bold' : '600', }} >
                                 Forgot Password?
                             </Text>

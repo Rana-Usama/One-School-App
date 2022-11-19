@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import React, { useState } from 'react';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 
@@ -11,7 +11,7 @@ import LoadingModal from './../components/common/LoadingModal';
 //config
 import Colors from '../config/Colors';
 
-export default function SignupScreen() {
+export default function SignupScreen(props) {
 
     // Input fields
     const [indicator, showIndicator] = useState(false);
@@ -55,12 +55,12 @@ export default function SignupScreen() {
         showIndicator(true);
         let tempfeilds = [...inputField];
 
-        if (tempfeilds[0].value === "" || tempfeilds[1].value === "") {
-            alert("Please fill all the feilds");
-            showIndicator(false);
-            return true;
-        }
-
+        // if (tempfeilds[0].value === "" || tempfeilds[1].value === "") {
+        //     alert("Please fill all the feilds");
+        //     showIndicator(false);
+        //     return true;
+        // }
+        props.navigation.navigate("LoginScreen")
         try {
             // API INTEGRATION WILL COME HERE
         } catch (error) {
@@ -75,9 +75,11 @@ export default function SignupScreen() {
 
             {/* Heading */}
             <View style={{ width: '90%', justifyContent: 'flex-start', flexDirection: 'row', alignSelf: 'center' }} >
-                <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#291380" }} >
+                <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#EC459F" }} >
                     Sign Up
                 </Text>
+
+                {/* <Image source={require('../../assets/images/su.png')} style={{ marginTop: RFPercentage(4), width: RFPercentage(18.1), height: RFPercentage(4.8) }} /> */}
             </View>
 
             <ScrollView style={{ flex: 1, width: '100%' }} >
@@ -133,5 +135,5 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: "center",
         backgroundColor: Colors.white
-    }
+    },
 })

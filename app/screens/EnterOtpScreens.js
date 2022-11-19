@@ -12,7 +12,7 @@ import LoadingModal from './../components/common/LoadingModal';
 //config
 import Colors from '../config/Colors';
 
-export default function EnterOtpScreen() {
+export default function EnterOtpScreen(props) {
 
     // Input fields
     const [indicator, showIndicator] = useState(false);
@@ -41,6 +41,7 @@ export default function EnterOtpScreen() {
             showIndicator(false);
             return true;
         }
+        props.navigation.navigate("NewPasswordScreen")
 
         try {
             // API INTEGRATION WILL COME HERE
@@ -56,7 +57,7 @@ export default function EnterOtpScreen() {
 
             {/* Heading */}
             <View style={{ marginTop: RFPercentage(4), width: '90%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
-                <Text style={{ fontSize: RFPercentage(5), fontWeight: 'bold', color: "#291380" }} >
+                <Text style={{ fontSize: RFPercentage(5), fontWeight: 'bold', color: "#EC459F" }} >
                     Enter OTP
                 </Text>
                 {/* Timer Text */}

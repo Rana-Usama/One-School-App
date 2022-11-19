@@ -12,7 +12,7 @@ import LoadingModal from './../components/common/LoadingModal';
 //config
 import Colors from '../config/Colors';
 
-export default function ForgetScreen() {
+export default function ForgetScreen(props) {
 
     // Input fields
     const [indicator, showIndicator] = useState(false);
@@ -41,6 +41,7 @@ export default function ForgetScreen() {
             showIndicator(false);
             return true;
         }
+        props.navigation.navigate("EnterOtpScreen")
 
         try {
             // API INTEGRATION WILL COME HERE
