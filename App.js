@@ -9,6 +9,8 @@ import LoginScreen from './app/screens/LoginScreen';
 import ForgetScreen from './app/screens/ForgetScreen';
 import NewPasswordScreen from './app/screens/NewPasswordScreen';
 import MainScreen from './app/screens/MainScreen';
+import AllFeaturesScreen from './app/screens/AllFeaturesScreen';
+import DetailScreen from './app/screens/DetailScreen';
 
 //config
 
@@ -25,6 +27,8 @@ export default function App() {
         <Stack.Screen name="ForgetScreen" component={ForgetScreen} />
         <Stack.Screen name="NewPasswordScreen" component={NewPasswordScreen} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
+        <Stack.Screen name="AllFeaturesScreen" component={AllFeaturesScreen} />
+        <Stack.Screen name="DetailScreen" component={DetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
