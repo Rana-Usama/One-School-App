@@ -78,8 +78,6 @@ export default function SignupScreen(props) {
                 <Text style={{ fontSize: RFPercentage(5), marginTop: RFPercentage(4), fontWeight: 'bold', color: "#EC459F" }} >
                     Sign Up
                 </Text>
-
-                {/* <Image source={require('../../assets/images/su.png')} style={{ marginTop: RFPercentage(4), width: RFPercentage(18.1), height: RFPercentage(4.8) }} /> */}
             </View>
 
             <ScrollView style={{ flex: 1, width: '100%' }} >
