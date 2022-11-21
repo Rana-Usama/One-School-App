@@ -56,7 +56,7 @@ export default function AllFeaturesScreen(props) {
 
             <View style={{ marginTop: RFPercentage(3.1), width: '90%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
 
-                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("MainScreen")} >
+                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.goBack()} >
                     <Ionicons name="ios-arrow-back-outline" style={{ fontSize: RFPercentage(3.4) }} color={"black"} />
                 </TouchableOpacity>
                 <Text style={{ marginLeft: RFPercentage(1.2), color: Colors.black, fontSize: RFPercentage(2.7), fontWeight: 'bold' }} >

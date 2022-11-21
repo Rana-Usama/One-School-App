@@ -11,6 +11,7 @@ import LoadingModal from './../components/common/LoadingModal';
 
 //config
 import Colors from '../config/Colors';
+import SignupScreen from './SignupScreen';
 
 export default function LoginScreen(props) {
 
@@ -46,7 +47,7 @@ export default function LoginScreen(props) {
             showIndicator(false);
             return true;
         }
-
+        props.navigation.navigate("HomeTab")
         try {
             // API INTEGRATION WILL COME HERE
         } catch (error) {
@@ -117,15 +118,25 @@ export default function LoginScreen(props) {
                         />
                     </View>
 
-                    {/* Social Media Saperation Line */}
                     <View style={{ marginTop: RFPercentage(4), width: '90%', flexDirection: 'row', alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }} >
+                        <Text style={{ color: Colors.black, fontSize: RFPercentage(1.9) }} >
+                            Don't have an account?
+                        </Text>
+                        <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("SignupScreen")} >
+                            <Text style={{ fontWeight: 'bold', marginLeft: RFPercentage(0.5), color: "#2B217F", fontSize: RFPercentage(1.9) }} >
+                                Signup
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Social Media Saperation Line */}
+                    <View style={{ marginTop: RFPercentage(3), width: '90%', flexDirection: 'row', alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }} >
                         <View style={{ width: '30%', height: RFPercentage(0.1), backgroundColor: Colors.black, marginRight: RFPercentage(2) }} />
                         <Text style={{ color: Colors.black, fontSize: RFPercentage(1.9) }} >
                             Continue With
                         </Text>
                         <View style={{ width: '30%', height: RFPercentage(0.1), backgroundColor: Colors.black, marginLeft: RFPercentage(2) }} />
                     </View>
-
                     {/* Logos links */}
                     <View style={{ marginTop: RFPercentage(3), width: '90%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} >
                         <TouchableOpacity activeOpacity={0.8} >

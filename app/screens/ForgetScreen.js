@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, ScrollView, Platform, Image } from 'react-nativ
 import React, { useState } from 'react';
 import { RFPercentage } from 'react-native-responsive-fontsize';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 
 //components
 import Screen from './../components/Screen';
@@ -56,8 +57,11 @@ export default function ForgetScreen(props) {
             <LoadingModal show={indicator} />
 
             {/* Heading */}
-            <View style={{ marginTop: RFPercentage(6), width: '90%', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
-                <Text style={{ fontSize: RFPercentage(3), fontWeight: 'bold', color: "#000" }} >
+            <View style={{ marginTop: RFPercentage(6), width: '90%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
+                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("LoginScreen")} >
+                    <Ionicons name="ios-arrow-back-outline" style={{ fontSize: RFPercentage(3.4) }} color={"black"} />
+                </TouchableOpacity>
+                <Text style={{ marginLeft: RFPercentage(2), fontSize: RFPercentage(3), fontWeight: 'bold', color: "#000" }} >
                     Forgot Password
                 </Text>
             </View>

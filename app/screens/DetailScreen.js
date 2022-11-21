@@ -19,7 +19,7 @@ export default function DetailScreen(props) {
     return (
         <Screen style={styles.screen}>
             <View style={{ marginTop: RFPercentage(3.1), width: '90%', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row', alignSelf: 'center' }} >
-                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.navigate("MainScreen")} >
+                <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.goBack()} >
                     <Ionicons name="ios-arrow-back-outline" style={{ fontSize: RFPercentage(3.4) }} color={"black"} />
                 </TouchableOpacity>
                 <Text style={{ marginLeft: RFPercentage(1.2), color: Colors.black, fontSize: RFPercentage(2.7), fontWeight: 'bold' }} >
@@ -33,7 +33,7 @@ export default function DetailScreen(props) {
                     <TouchableOpacity activeOpacity={0.8} onPress={() => setPickerModel(true)} >
                         <AntDesign name="edit" style={{ fontSize: RFPercentage(2.8) }} color="#2B217F" />
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={0.8} >
+                    <TouchableOpacity activeOpacity={0.8} onPress={() => props.navigation.goBack()} >
                         <MaterialIcons name="delete" style={{ marginLeft: RFPercentage(1.4), fontSize: RFPercentage(2.8) }} color="#2B217F" />
                     </TouchableOpacity>
                 </View>
@@ -42,7 +42,6 @@ export default function DetailScreen(props) {
                     Students
                 </Text>
             </View>
-
 
             {/* Model */}
             <Modal visible={pickerModel} transparent={true}>
@@ -64,7 +63,7 @@ export default function DetailScreen(props) {
                         </View>
 
                         <View style={{ marginTop: RFPercentage(5), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }} >
-                            <TouchableOpacity onPress={() => props.navigation.navigate("MainScreen")} activeOpacity={0.8} style={{ backgroundColor: '#EC459F', width: RFPercentage(18), height: RFPercentage(5.5), borderRadius: RFPercentage(1.1), justifyContent: 'center', alignItems: 'center' }} >
+                            <TouchableOpacity onPress={() => props.navigation.goBack()} activeOpacity={0.8} style={{ backgroundColor: '#EC459F', width: RFPercentage(18), height: RFPercentage(5.5), borderRadius: RFPercentage(1.1), justifyContent: 'center', alignItems: 'center' }} >
                                 <Text style={{ fontSize: RFPercentage(1.9), color: Colors.white }} >
                                     Yes
                                 </Text>
@@ -78,7 +77,6 @@ export default function DetailScreen(props) {
                     </View>
                 </View>
             </Modal>
-
         </Screen>
     )
 }
